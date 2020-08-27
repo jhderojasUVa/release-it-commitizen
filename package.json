@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
     "release": "release-it",
     "commit": "npm run cz",
     "cz": "git-cz"
