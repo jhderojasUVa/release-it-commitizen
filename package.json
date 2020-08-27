@@ -1,6 +1,6 @@
 {
   "name": "release-commitizen-integration-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,10 +16,10 @@
     "commitizen": "^4.2.1",
     "release-it": "^13.7.0"
   },
-  "config": { 
-    "commitizen": { 
-      "path": "./node_modules/cz-conventional-changelog" 
-    } 
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "lint-staged": {
     "*.js": [
@@ -62,7 +62,7 @@
       "timeout": 0,
       "proxy": null,
       "skipChecks": false
-    },  
+    },
     "npm": {
       "publish": true,
       "publishPath": ".",
