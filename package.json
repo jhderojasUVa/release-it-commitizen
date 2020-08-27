@@ -1,0 +1,76 @@
+{
+  "name": "release-commitizen-integration-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "release-it",
+    "commit": "npm run cz",
+    "cz": "git-cz"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commitizen": "^4.2.1",
+    "release-it": "^13.7.0"
+  },
+  "config": { 
+    "commitizen": { 
+      "path": "./node_modules/cz-conventional-changelog" 
+    } 
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "node scripts/checkbranch.js && lint-staged",
+      "pre-push": "jest --color --coverage --runInBand"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhderojasUVa/release-it-commitizen.git"
+  },
+  "release-it": {
+    "hooks": {
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+    },
+    "git": {
+      "tagName": "v${version}",
+      "tag": true,
+      "requireCleanWorkingDir": false,
+      "requireUpstream": false,
+      "commitMessage": "release: release v%s",
+      "commit": true,
+      "push": true
+    },
+    "github": {
+      "release": false,
+      "releaseName": "Release ${version}",
+      "releaseNotes": null,
+      "preRelease": false,
+      "draft": false,
+      "tokenRef": "GITHUBTMP_TOKEN",
+      "assets": null,
+      "host": null,
+      "timeout": 0,
+      "proxy": null,
+      "skipChecks": false
+    },  
+    "npm": {
+      "publish": true,
+      "publishPath": ".",
+      "tag": null,
+      "otp": null,
+      "ignoreVersion": false,
+      "skipChecks": false,
+      "timeout": 20
+    }
+  }
+}

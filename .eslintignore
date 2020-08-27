@@ -1,0 +1,4 @@
+**/dist
+**/scripts
+**/template
+node_modules
