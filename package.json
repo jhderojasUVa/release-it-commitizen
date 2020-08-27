@@ -39,6 +39,7 @@
   },
   "release-it": {
     "hooks": {
+      "after:bump": "npx auto-changelog -p",
       "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     },
     "git": {
@@ -48,10 +49,11 @@
       "requireUpstream": false,
       "commitMessage": "release: release v%s",
       "commit": true,
-      "push": true
+      "push": true,
+      "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs"
     },
     "github": {
-      "release": false,
+      "release": true,
       "releaseName": "Release ${version}",
       "releaseNotes": null,
       "preRelease": false,
@@ -71,6 +73,14 @@
       "ignoreVersion": false,
       "skipChecks": false,
       "timeout": 20
+    },
+    "plugins": {
+      "@release-it/keep-a-changelog": {
+        "filename": "CHANGELOG.md"
+      }
     }
+  },
+  "devDependencies": {
+    "@release-it/keep-a-changelog": "^1.1.1"
   }
 }
