@@ -1,0 +1,3 @@
+- chore: better changelog generation xD [`488c86f`](https://github.com/jhderojasUVa/release-it-commitizen/commit/488c86f7ad8229351483d5268496799d0c123ace)
+- chore: small things make big differences [`392fbc2`](https://github.com/jhderojasUVa/release-it-commitizen/commit/392fbc255d617b13226dc0aa7207990d80500846)
+- chore: cHANGELOG.md is your friend [`418e114`](https://github.com/jhderojasUVa/release-it-commitizen/commit/418e11406e6fd6718e3895522023dbe172136756)
